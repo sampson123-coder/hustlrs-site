@@ -4,41 +4,136 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hustlrs — Put money on your workouts</title>
-  <meta name="description" content="Hustlrs is the fitness accountability app where you stake real money on your weekly sessions. Photo proof, your crew keeps you honest, winners take the pot.">
+  <meta name="description" content="Hustlrs is the fitness accountability app where you stake real money on your weekly sessions with your crew. Photo proof, group verification, winners take the pot.">
+  <meta property="og:title" content="Hustlrs — Put money on your workouts">
+  <meta property="og:description" content="Stake real money on your weekly sessions. Prove it with photos. Winners take the pot, or it goes to charity.">
+  <meta property="og:url" content="https://hustlrs.co">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="wrap">
     <header>
       <a class="wordmark" href="/">Hustlrs</a>
+      <a class="nav-cta" href="mailto:hustlrsapp@gmail.com?subject=Hustlrs%20beta">Join the beta</a>
     </header>
 
     <section class="hero">
-      <h1>Hit your sessions, <span class="gold">keep your cash</span> and make more.</h1>
-      <p class="tagline">Stake real money on your weekly workouts with your crew. Prove every session with a photo. Miss your target and you fund someone else's effort, or a charity.</p>
-      <span class="badge">Coming soon to the App Store</span>
+      <div class="hero-glow"></div>
+      <div>
+        <h1>Your workouts.<br>Your mates.<br><span class="gold">Real money.</span></h1>
+        <p class="tagline">Stake a deposit on your weekly sessions with your crew. Prove every workout with a photo. Hit your target and keep your cash. The most consistent takes the pot.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="mailto:hustlrsapp@gmail.com?subject=Hustlrs%20beta">Get early access</a>
+          <a class="btn-ghost" href="#how">How it works</a>
+        </div>
+        <div class="trust-row">
+          <span>Payments by Stripe</span>
+          <span>Photo-proof verified</span>
+          <span>Coming soon to the App Store</span>
+        </div>
+      </div>
+      <div class="phone tilt">
+        <img src="img/app-home.png" alt="Hustlrs home screen showing live hustles and wallet balance" width="320">
+      </div>
     </section>
 
-    <section class="steps">
-      <div class="step">
-        <div class="num">1</div>
-        <div><h3>Put money on it</h3>
-        <p>Everyone in a hustle stakes the same deposit and declares their weekly sessions.</p></div>
+    <section class="block" id="how">
+      <p class="kicker">How it works</p>
+      <h2 class="title">Four steps. No excuses.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Put money on it</h3>
+          <p>Everyone in a hustle stakes the same deposit and declares their weekly sessions. £5 minimum, your crew, your rules.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Prove it with a photo</h3>
+          <p>Every session needs a photo, taken live from the camera. Cooldowns stop anyone faking a week in one night.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Your crew keeps you honest</h3>
+          <p>Photos that break the rules get flagged. If the majority agrees by week's end, it doesn't count.</p>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <h3>Winner takes the pot</h3>
+          <p>Earn back what you complete. The best finisher takes the forfeits, paid straight to their wallet.</p>
+        </div>
       </div>
-      <div class="step">
-        <div class="num">2</div>
-        <div><h3>Prove it with a photo</h3>
-        <p>Every session needs a photo, taken live from the camera. No faking a week in one go.</p></div>
+    </section>
+
+    <section class="block">
+      <div class="split">
+        <div>
+          <p class="kicker">The pot</p>
+          <h2 class="title">Every missed session funds someone else's grind.</h2>
+          <p>You get back exactly the share of your target you complete. Whatever you don't earn stays in the pot, and the member with the highest completion takes it. Everyone hits 100%? Everyone gets every penny back.</p>
+          <p>Deposits, wallets and payouts run on Stripe. We never see your card.</p>
+        </div>
+        <div class="split-media">
+          <div class="pot-card">
+            <div class="pot-label">THE POT</div>
+            <div class="pot-amount">£32.40 <small>of £45 left</small></div>
+            <div class="pot-bar"><i></i></div>
+            <div class="pot-meta"><span class="secured">SECURED</span><span class="risk">AT RISK</span></div>
+            <div class="pot-slogan">Winner takes the pot</div>
+          </div>
+        </div>
       </div>
-      <div class="step">
-        <div class="num">3</div>
-        <div><h3>Keep each other honest</h3>
-        <p>Photos that break the rules get flagged by the group. Majority decides what counts.</p></div>
+    </section>
+
+    <section class="block">
+      <div class="split rev">
+        <div>
+          <p class="kicker">Keep each other honest</p>
+          <h2 class="title">No refs. Just your mates and a flag button.</h2>
+          <p>Hosts set the photo rules: mirror selfie at the gym, face visible, whatever keeps it real. A dodgy photo gets flagged anonymously, the group sees it in chat, and the poster can defend it or retake it.</p>
+          <p>If more than half the hustle flags it, it doesn't count. Democracy, but for burpees.</p>
+        </div>
+        <div class="split-media">
+          <div class="chat-mock">
+            <div class="chat-pill"><span class="flag">⚑</span> Adz's photo was flagged.</div>
+            <div class="chat-bubble them">Who flagged me 😭</div>
+            <div class="chat-bubble me">That's a photo of your sofa mate</div>
+            <div class="chat-bubble them">It was leg day I swear</div>
+          </div>
+        </div>
       </div>
-      <div class="step">
-        <div class="num">4</div>
-        <div><h3>Win the pot</h3>
-        <p>The best finisher takes the forfeits, or they go to charity in charity mode. Payments powered by Stripe.</p></div>
+    </section>
+
+    <section class="block">
+      <div class="split">
+        <div>
+          <p class="kicker">Charity mode</p>
+          <h2 class="title">Skip it, donate it.</h2>
+          <p>Hosts can point the pot at a cause instead of a winner. Miss your sessions in charity mode and 90% of your forfeit goes to the hustle's chosen charity. Guilt has never been this productive.</p>
+          <div class="charity-chips">
+            <span>British Heart Foundation</span>
+            <span>Cancer Research UK</span>
+            <span>Macmillan</span>
+            <span>National Trust</span>
+            <span>RSPCA</span>
+          </div>
+        </div>
+        <div class="split-media">
+          <div class="pot-card">
+            <div class="pot-label">THE POT</div>
+            <div class="pot-amount">£18.00 <small>of £30 left</small></div>
+            <div class="pot-bar"><i style="width:60%"></i></div>
+            <div class="pot-meta"><span class="secured">SECURED</span><span class="risk">AT RISK</span></div>
+            <div class="pot-slogan green">Skip it, Donate it.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="cta-band">
+        <h2>Outwork them.<br>Outearn them.</h2>
+        <p>Hustlrs is in private beta. Get on the list for the TestFlight.</p>
+        <a class="btn-primary" href="mailto:hustlrsapp@gmail.com?subject=Hustlrs%20beta">Get early access</a>
       </div>
     </section>
 
@@ -46,7 +141,7 @@
       <a href="/privacy.html">Privacy Policy</a>
       <a href="/terms.html">Terms of Service</a>
       <a href="mailto:hustlrsapp@gmail.com">Contact</a>
-      <p style="margin-top:12px">&copy; 2026 Hustlrs</p>
+      <p style="margin-top:12px">&copy; 2026 Hustlrs &middot; 18+ &middot; UK</p>
     </footer>
   </div>
 </body>
