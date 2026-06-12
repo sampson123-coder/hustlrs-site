@@ -182,6 +182,8 @@ p.lead { font-size: 16px; color: var(--muted); max-width: 560px; }
 .split.rev > .split-media { order: 2; }
 .split h2 { margin-bottom: 14px; }
 .split p { color: var(--muted); font-size: 16px; margin-bottom: 12px; }
+.split p.kicker { color: var(--gold); }
+.split p.kicker.green, p.kicker.green { color: var(--green); }
 
 /* pot card mock */
 .pot-card {
