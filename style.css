@@ -449,3 +449,14 @@ footer a:hover { color: var(--text); }
 
 .example-table .lost { color: #ef5858; font-weight: 700; }
 .example-table .lost.none { color: var(--dim); font-weight: 600; }
+
+/* mobile: example table fits without sideways scroll */
+@media (max-width: 600px) {
+  .example-card { padding: 20px 16px; }
+  /* sessions column already implies the percentage */
+  .example-table th:nth-child(3),
+  .example-table td:nth-child(3) { display: none; }
+  .example-table th { padding: 6px 6px; letter-spacing: 0.8px; font-size: 10px; }
+  .example-table td { padding: 11px 6px; font-size: 13.5px; }
+  .example-table .lost, .example-table .back { white-space: nowrap; }
+}
