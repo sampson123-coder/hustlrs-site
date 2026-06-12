@@ -513,3 +513,13 @@ footer a:hover { color: var(--text); }
 @media (max-width: 820px) {
   .phone-row .phone.lean-l, .phone-row .phone.lean-r { transform: none; margin-top: 0; }
 }
+
+/* two screens under the hero */
+section.screens { padding: 0 0 56px; }
+section.screens .phone-row { margin-top: 0; gap: 44px; }
+section.screens .phone { width: min(300px, 80vw); }
+section.screens .phone.lean-l { transform: rotate(-2deg); margin: 0; }
+section.screens .phone.lean-r { transform: rotate(2deg); margin: 0; }
+@media (max-width: 820px) {
+  section.screens .phone.lean-l, section.screens .phone.lean-r { transform: none; }
+}
