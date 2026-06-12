@@ -335,3 +335,82 @@ footer a:hover { color: var(--text); }
   section.block { padding: 44px 0; }
   .phone.tilt { transform: none; }
 }
+
+/* ---------- worked example ---------- */
+.example-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 28px;
+  margin-top: 36px;
+}
+.example-card .scenario {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.example-card .scenario b { color: var(--text); }
+.example-table { width: 100%; border-collapse: collapse; }
+.example-table th {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--dim);
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+}
+.example-table td {
+  padding: 12px 10px;
+  font-size: 14.5px;
+  border-bottom: 1px solid var(--border);
+}
+.example-table tr:last-child td { border-bottom: none; }
+.example-table .name { font-weight: 800; }
+.example-table .pct { color: var(--muted); }
+.example-table .back { font-weight: 800; text-align: right; white-space: nowrap; }
+.example-table .win .back, .example-table .win .name { color: var(--gold); }
+.example-table .crown { font-size: 12px; }
+.example-note {
+  margin-top: 16px;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+.example-note b { color: var(--text); }
+
+/* definition strip */
+.define {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: 18px;
+  padding: 22px 26px;
+  font-size: 17px;
+  color: var(--muted);
+  margin-top: 28px;
+}
+.define b { color: var(--text); }
+
+/* FAQ */
+.faq { margin-top: 36px; display: grid; gap: 10px; }
+.faq details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 0 22px;
+}
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--gold); font-size: 22px; font-weight: 700; }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { color: var(--muted); font-size: 14.5px; padding-bottom: 18px; }
