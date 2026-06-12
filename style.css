@@ -444,3 +444,6 @@ footer a:hover { color: var(--text); }
 @media (max-width: 820px) {
   .sell-cards { grid-template-columns: 1fr; }
 }
+
+.example-table .lost { color: #ef5858; font-weight: 700; }
+.example-table .lost.none { color: var(--dim); font-weight: 600; }
