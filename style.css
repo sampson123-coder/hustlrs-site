@@ -414,3 +414,33 @@ footer a:hover { color: var(--text); }
 .faq summary::after { content: "+"; color: var(--gold); font-size: 22px; font-weight: 700; }
 .faq details[open] summary::after { content: "–"; }
 .faq details p { color: var(--muted); font-size: 14.5px; padding-bottom: 18px; }
+
+/* sell cards */
+.sell-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+.sell-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 26px;
+  position: relative;
+  overflow: hidden;
+}
+.sell-card .emoji { font-size: 30px; display: block; margin-bottom: 14px; }
+.sell-card h3 { font-size: 19px; font-weight: 900; letter-spacing: -0.4px; margin-bottom: 8px; }
+.sell-card p { font-size: 14.5px; color: var(--muted); }
+.sell-card.gold { border-color: rgba(238, 171, 33, 0.45); }
+.sell-card.gold::after {
+  content: "";
+  position: absolute;
+  top: -70px; right: -70px;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(238, 171, 33, 0.18), transparent 70%);
+}
+@media (max-width: 820px) {
+  .sell-cards { grid-template-columns: 1fr; }
+}
