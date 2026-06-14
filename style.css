@@ -54,16 +54,17 @@ header {
 
 /* laptop: text left, phones right, both filling the width */
 @media (min-width: 920px) {
-  .hero { padding: 72px 0; }
+  .hero { padding: 80px 0; }
   .hero-inner {
-    display: flex; align-items: center; gap: 48px;
-    padding: 0 48px; text-align: left;
+    display: flex; align-items: center; gap: 52px;
+    max-width: 1340px; padding: 0 48px; text-align: left;
   }
   .hero-copy { flex: 1 1 0; }
   .hero h1 { font-size: clamp(44px, 4.6vw, 62px); margin-bottom: 24px; }
   .hero p { font-size: 19px; margin: 0 0 34px; max-width: 460px; }
-  .hero-phones { flex: 0 0 auto; margin: 0; max-width: none; gap: 12px; }
-  .hero-phones .phone { flex: 0 0 auto; width: 204px; }
+  .hero-phones { flex: 0 0 auto; margin: 0; max-width: none; gap: 16px; }
+  .hero-phones .phone { flex: 0 0 auto; width: 246px; padding: 8px; border-radius: 38px; }
+  .hero-phones .phone img { border-radius: 30px; }
 }
 .btn {
   display: inline-block;
@@ -75,18 +76,26 @@ header {
 
 .hero-phones {
   display: flex; gap: 14px; justify-content: center; align-items: flex-start;
-  margin: 54px auto 0; max-width: 560px;
+  margin: 54px auto 0; max-width: 620px;
 }
+/* iPhone-style body: dark rounded bezel, rounded screen, side buttons */
 .hero-phones .phone {
+  position: relative;
   flex: 1 1 0; min-width: 0;
-  border-radius: 22px; border: 5px solid #16181d; outline: 1px solid #2a2d35;
-  overflow: hidden; background: #000;
-  box-shadow: 0 18px 44px rgba(0,0,0,0.5);
+  background: #0b0c0f; border-radius: 28px; padding: 6px;
+  box-shadow: inset 0 0 0 1.5px #2b2e37, 0 22px 50px rgba(0,0,0,0.55);
 }
-.hero-phones .phone img { display: block; width: 100%; }
+.hero-phones .phone img { display: block; width: 100%; border-radius: 22px; }
+.hero-phones .phone::before,
+.hero-phones .phone::after {
+  content: ""; position: absolute; background: #15171c; border-radius: 3px;
+}
+.hero-phones .phone::after  { left: -2px;  top: 24%; height: 10%; width: 3px; }  /* volume */
+.hero-phones .phone::before { right: -2px; top: 30%; height: 13%; width: 3px; }  /* power */
 @media (max-width: 480px) {
   .hero-phones { gap: 8px; }
-  .hero-phones .phone { border-width: 3px; border-radius: 14px; }
+  .hero-phones .phone { padding: 4px; border-radius: 18px; }
+  .hero-phones .phone img { border-radius: 14px; }
 }
 
 /* sections */
