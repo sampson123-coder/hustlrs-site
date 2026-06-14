@@ -54,16 +54,16 @@ header {
 
 /* laptop: text left, phones right, both filling the width */
 @media (min-width: 920px) {
-  .hero { padding: 76px 0; }
+  .hero { padding: 72px 0; }
   .hero-inner {
-    display: flex; align-items: center; gap: 64px;
-    padding: 0 56px; text-align: left;
+    display: flex; align-items: center; gap: 48px;
+    padding: 0 48px; text-align: left;
   }
   .hero-copy { flex: 1 1 0; }
-  .hero h1 { font-size: clamp(48px, 5.2vw, 70px); margin-bottom: 24px; }
-  .hero p { font-size: 19px; margin: 0 0 34px; max-width: 480px; }
-  .hero-phones { flex: 0 0 auto; margin: 0; max-width: none; }
-  .hero-phones .phone { flex: 0 0 auto; width: 256px; }
+  .hero h1 { font-size: clamp(44px, 4.6vw, 62px); margin-bottom: 24px; }
+  .hero p { font-size: 19px; margin: 0 0 34px; max-width: 460px; }
+  .hero-phones { flex: 0 0 auto; margin: 0; max-width: none; gap: 12px; }
+  .hero-phones .phone { flex: 0 0 auto; width: 204px; }
 }
 .btn {
   display: inline-block;
