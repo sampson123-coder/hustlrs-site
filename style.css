@@ -22,6 +22,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  overscroll-behavior-x: none;
 }
 
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
@@ -523,3 +524,6 @@ section.screens .phone.lean-r { transform: rotate(2deg); margin: 0; }
 @media (max-width: 820px) {
   section.screens .phone.lean-l, section.screens .phone.lean-r { transform: none; }
 }
+
+/* images/mockups are decorative, not draggable assets */
+img { -webkit-user-drag: none; user-select: none; }
