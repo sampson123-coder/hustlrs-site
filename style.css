@@ -109,8 +109,8 @@ header {
   .hero h1 { font-size: clamp(44px, 4.6vw, 62px); margin-bottom: 24px; }
   .hero p { font-size: 19px; margin: 0 0 34px; max-width: 460px; }
   .hero-phones { flex: 0 0 auto; margin: 0; max-width: none; gap: 18px; }
-  .hero-phones .phone { flex: 0 0 auto; width: 272px; padding: 9px; border-radius: 50px; }
-  .hero-phones .phone img { border-radius: 41px; }
+  .hero-phones .phone { flex: 0 0 auto; width: 272px; padding: 9px; border-radius: 58px; }
+  .hero-phones .phone img { border-radius: 49px; }
 }
 .btn {
   display: inline-block;
@@ -128,11 +128,11 @@ header {
 .hero-phones .phone {
   position: relative;
   flex: 1 1 0; min-width: 0;
-  border-radius: 38px; padding: 7px;
+  border-radius: 44px; padding: 7px;
   background: #0b0c0f;
   box-shadow: inset 0 0 0 1.5px #2b2e37, 0 16px 36px rgba(0,0,0,0.45);
 }
-.hero-phones .phone img { display: block; width: 100%; border-radius: 31px; }
+.hero-phones .phone img { display: block; width: 100%; border-radius: 37px; }
 .hero-phones .phone::before,
 .hero-phones .phone::after {
   content: ""; position: absolute; background: #15171c; border-radius: 3px;
@@ -141,8 +141,8 @@ header {
 .hero-phones .phone::before { right: -2px; top: 31%; height: 12%; width: 3px; }  /* power */
 @media (max-width: 480px) {
   .hero-phones { gap: 8px; }
-  .hero-phones .phone { padding: 5px; border-radius: 30px; }
-  .hero-phones .phone img { border-radius: 25px; }
+  .hero-phones .phone { padding: 5px; border-radius: 34px; }
+  .hero-phones .phone img { border-radius: 29px; }
 }
 
 /* sections */
@@ -181,7 +181,7 @@ h2 {
 .mode-shot {
   position: relative;
   width: 62%; max-width: 210px; margin: 2px auto 20px;
-  background: #0b0c0f; border-radius: 38px; padding: 7px;
+  background: #0b0c0f; border-radius: 44px; padding: 7px;
   box-shadow: inset 0 0 0 1.5px #2b2e37, 0 16px 36px rgba(0,0,0,0.45);
   cursor: zoom-in;
   transition: transform 0.28s ease, box-shadow 0.28s ease;
@@ -190,7 +190,7 @@ h2 {
   transform: translateY(-6px) scale(1.04);
   box-shadow: inset 0 0 0 1.5px #2b2e37, 0 28px 56px rgba(0,0,0,0.6);
 }
-.mode-shot img { display: block; width: 100%; border-radius: 31px; }
+.mode-shot img { display: block; width: 100%; border-radius: 37px; }
 /* iPhone-style side buttons to match the hero phones */
 .mode-shot::before,
 .mode-shot::after {
