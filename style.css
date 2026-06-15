@@ -10,7 +10,7 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
   background: var(--bg);
   color: var(--text);
@@ -40,8 +40,12 @@ header {
 /* index: full-bleed header so the wordmark lines up with the full-width hero */
 .page header {
   display: block;
+  position: sticky; top: 0; z-index: 100;
   width: 100vw; margin-left: calc(50% - 50vw);
-  padding: 22px 0;
+  padding: 18px 0;
+  background: rgba(10, 11, 13, 0.82);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
 }
 .header-inner {
   max-width: 1340px; margin: 0 auto; padding: 0 24px;
@@ -65,11 +69,12 @@ header {
 }
 .nav-links a:hover { color: var(--text); }
 .nav-links .nav-contact {
-  color: var(--text); border: 1px solid var(--border);
+  color: #0a0b0d; font-weight: 800;
+  background: var(--gold); border: 1px solid var(--gold);
   border-radius: 999px; padding: 9px 18px;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition: opacity 0.15s ease;
 }
-.nav-links .nav-contact:hover { background: var(--surface); border-color: var(--dim); }
+.nav-links .nav-contact:hover { background: var(--gold); opacity: 0.9; }
 @media (max-width: 640px) {
   .nav-links { gap: 0; }
   .nav-links a:not(.nav-contact) { display: none; }
