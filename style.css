@@ -129,19 +129,16 @@ header {
   position: relative;
   flex: 1 1 0; min-width: 0;
   border-radius: 38px; padding: 7px;
-  background: linear-gradient(135deg, #8a8d98 0%, #2a2c32 20%, #0a0b0e 50%, #2a2c32 80%, #8a8d98 100%);
-  box-shadow: 0 26px 56px rgba(0,0,0,0.62);
+  background: #0b0c0f;
+  box-shadow: inset 0 0 0 1.5px #2b2e37, 0 16px 36px rgba(0,0,0,0.45);
 }
-.hero-phones .phone img {
-  display: block; width: 100%; border-radius: 31px;
-  box-shadow: 0 0 0 2px #060708;   /* thin black bezel between rail and screen */
-}
+.hero-phones .phone img { display: block; width: 100%; border-radius: 31px; }
 .hero-phones .phone::before,
 .hero-phones .phone::after {
-  content: ""; position: absolute; background: #3a3d45; border-radius: 3px;
+  content: ""; position: absolute; background: #15171c; border-radius: 3px;
 }
-.hero-phones .phone::after  { left: -1px;  top: 24%; height: 10%; width: 3px; }  /* volume */
-.hero-phones .phone::before { right: -1px; top: 30%; height: 13%; width: 3px; }  /* power */
+.hero-phones .phone::after  { left: -2px;  top: 25%; height: 9%;  width: 3px; }  /* volume */
+.hero-phones .phone::before { right: -2px; top: 31%; height: 12%; width: 3px; }  /* power */
 @media (max-width: 480px) {
   .hero-phones { gap: 8px; }
   .hero-phones .phone { padding: 5px; border-radius: 30px; }
