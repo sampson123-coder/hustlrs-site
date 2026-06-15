@@ -84,8 +84,8 @@ header {
   .hero-copy { flex: 1 1 0; }
   .hero h1 { font-size: clamp(44px, 4.6vw, 62px); margin-bottom: 24px; }
   .hero p { font-size: 19px; margin: 0 0 34px; max-width: 460px; }
-  .hero-phones { flex: 0 0 auto; margin: 0; max-width: none; gap: 16px; }
-  .hero-phones .phone { flex: 0 0 auto; width: 246px; padding: 8px; border-radius: 38px; }
+  .hero-phones { flex: 0 0 auto; margin: 0; max-width: none; gap: 18px; }
+  .hero-phones .phone { flex: 0 0 auto; width: 272px; padding: 9px; border-radius: 42px; }
   .hero-phones .phone img { border-radius: 30px; }
 }
 .btn {
