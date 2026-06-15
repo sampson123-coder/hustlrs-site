@@ -187,6 +187,12 @@
 
       // Always start at the top on load/refresh, never restore mid-page scroll
       if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      // Strip any leftover #hash (e.g. #modes) so refreshes don't jump to a section
+      if (location.hash) {
+        history.replaceState(null, '', location.pathname + location.search);
+      }
+      window.scrollTo(0, 0);
+      window.addEventListener('load', function () { window.scrollTo(0, 0); });
 
       // Smooth-scroll nav without leaving a #hash in the URL
       document.querySelectorAll('.nav-links a[href^="#"]').forEach(function (link) {
