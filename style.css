@@ -129,7 +129,7 @@ header {
   position: relative;
   flex: 1 1 0; min-width: 0;
   border-radius: 38px; padding: 7px;
-  background: linear-gradient(135deg, #54565f 0%, #1b1d23 24%, #0a0b0e 50%, #1b1d23 76%, #54565f 100%);
+  background: linear-gradient(135deg, #8a8d98 0%, #2a2c32 20%, #0a0b0e 50%, #2a2c32 80%, #8a8d98 100%);
   box-shadow: 0 26px 56px rgba(0,0,0,0.62);
 }
 .hero-phones .phone img {
