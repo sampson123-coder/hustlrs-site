@@ -11,7 +11,7 @@
   <link rel="icon" href="/favicon.ico?v=4" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png?v=2">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="style.css?v=35">
+  <link rel="stylesheet" href="style.css?v=36">
 </head>
 <body>
   <div class="page">
@@ -109,5 +109,38 @@
       <p class="small">&copy; 2026 Hustlrs &middot; 18+ &middot; UK</p>
     </footer>
   </div>
+
+  <div class="lightbox" id="lightbox">
+    <div class="frame"><img id="lightbox-img" src="" alt=""></div>
+  </div>
+
+  <script>
+    (function () {
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lightbox-img');
+      var frame = lb.querySelector('.frame');
+      function open(img) {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      document.querySelectorAll('.mode-shot').forEach(function (shot) {
+        shot.addEventListener('click', function () {
+          var img = shot.querySelector('img');
+          if (img) open(img);
+        });
+      });
+      lb.addEventListener('click', close);
+      frame.addEventListener('click', function (e) { e.stopPropagation(); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') close();
+      });
+    })();
+  </script>
 </body>
 </html>
