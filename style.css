@@ -144,6 +144,25 @@ h2 {
 .step h3 { font-size: 17px; font-weight: 800; margin-bottom: 3px; letter-spacing: -0.2px; }
 .step p { font-size: 14.5px; color: var(--muted); }
 
+/* two ways to play */
+.modes {
+  display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 26px;
+}
+@media (min-width: 600px) { .modes { grid-template-columns: 1fr 1fr; } }
+.mode {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 18px; padding: 22px 22px 24px;
+}
+.mode-tag {
+  display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 1px;
+  text-transform: uppercase; padding: 4px 11px; border-radius: 999px; margin-bottom: 14px;
+  color: #0a0b0d;
+}
+.tag-gold { background: var(--gold); }
+.tag-green { background: var(--green); }
+.mode h3 { font-size: 19px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 8px; }
+.mode p { font-size: 14.5px; color: var(--muted); line-height: 1.55; }
+
 /* worked example */
 .example {
   margin-top: 26px;
