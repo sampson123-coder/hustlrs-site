@@ -81,7 +81,7 @@ header {
     display: flex; align-items: center; justify-content: center; gap: 56px;
     max-width: 1340px; padding: 0 48px; text-align: left;
   }
-  .hero-copy { flex: 0 1 480px; }
+  .hero-copy { flex: 0 1 480px; position: relative; left: 34px; }
   .hero h1 { font-size: clamp(44px, 4.6vw, 62px); margin-bottom: 24px; }
   .hero p { font-size: 19px; margin: 0 0 34px; max-width: 460px; }
   .hero-phones { flex: 0 0 auto; margin: 0; max-width: none; gap: 18px; }
