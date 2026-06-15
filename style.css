@@ -109,8 +109,8 @@ header {
   .hero h1 { font-size: clamp(44px, 4.6vw, 62px); margin-bottom: 24px; }
   .hero p { font-size: 19px; margin: 0 0 34px; max-width: 460px; }
   .hero-phones { flex: 0 0 auto; margin: 0; max-width: none; gap: 18px; }
-  .hero-phones .phone { flex: 0 0 auto; width: 272px; padding: 9px; border-radius: 42px; }
-  .hero-phones .phone img { border-radius: 30px; }
+  .hero-phones .phone { flex: 0 0 auto; width: 272px; padding: 9px; border-radius: 50px; }
+  .hero-phones .phone img { border-radius: 41px; }
 }
 .btn {
   display: inline-block;
@@ -124,24 +124,28 @@ header {
   display: flex; gap: 14px; justify-content: center; align-items: flex-start;
   margin: 54px auto 0; max-width: 620px;
 }
-/* iPhone-style body: dark rounded bezel, rounded screen, side buttons */
+/* iPhone-style body: titanium rail, dark bezel, rounded screen, side buttons */
 .hero-phones .phone {
   position: relative;
   flex: 1 1 0; min-width: 0;
-  background: #0b0c0f; border-radius: 28px; padding: 6px;
-  box-shadow: inset 0 0 0 1.5px #2b2e37, 0 22px 50px rgba(0,0,0,0.55);
+  border-radius: 38px; padding: 7px;
+  background: linear-gradient(135deg, #54565f 0%, #1b1d23 24%, #0a0b0e 50%, #1b1d23 76%, #54565f 100%);
+  box-shadow: 0 26px 56px rgba(0,0,0,0.62);
 }
-.hero-phones .phone img { display: block; width: 100%; border-radius: 22px; }
+.hero-phones .phone img {
+  display: block; width: 100%; border-radius: 31px;
+  box-shadow: 0 0 0 2px #060708;   /* thin black bezel between rail and screen */
+}
 .hero-phones .phone::before,
 .hero-phones .phone::after {
-  content: ""; position: absolute; background: #15171c; border-radius: 3px;
+  content: ""; position: absolute; background: #3a3d45; border-radius: 3px;
 }
-.hero-phones .phone::after  { left: -2px;  top: 24%; height: 10%; width: 3px; }  /* volume */
-.hero-phones .phone::before { right: -2px; top: 30%; height: 13%; width: 3px; }  /* power */
+.hero-phones .phone::after  { left: -1px;  top: 24%; height: 10%; width: 3px; }  /* volume */
+.hero-phones .phone::before { right: -1px; top: 30%; height: 13%; width: 3px; }  /* power */
 @media (max-width: 480px) {
   .hero-phones { gap: 8px; }
-  .hero-phones .phone { padding: 4px; border-radius: 18px; }
-  .hero-phones .phone img { border-radius: 14px; }
+  .hero-phones .phone { padding: 5px; border-radius: 30px; }
+  .hero-phones .phone img { border-radius: 25px; }
 }
 
 /* sections */
