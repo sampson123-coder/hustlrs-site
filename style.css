@@ -230,6 +230,63 @@ h2 {
   border-radius: 46px;
 }
 
+/* contact form modal */
+.modal {
+  position: fixed; inset: 0; z-index: 300;
+  display: none; align-items: center; justify-content: center;
+  padding: 24px; overflow-y: auto;
+  background: rgba(6, 7, 9, 0.9);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+}
+.modal.open { display: flex; }
+.modal-card {
+  position: relative; width: 100%; max-width: 520px; margin: auto;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 20px; padding: 34px 30px 30px;
+}
+.modal-card h3 { font-size: 27px; font-weight: 900; letter-spacing: -0.6px; }
+.modal-sub { color: var(--muted); font-size: 15px; margin: 7px 0 24px; }
+.modal-close {
+  position: absolute; top: 14px; right: 18px;
+  background: none; border: none; color: var(--muted);
+  font-size: 30px; line-height: 1; cursor: pointer; padding: 4px;
+}
+.modal-close:hover { color: var(--text); }
+#contact-form label {
+  display: block; font-size: 13px; font-weight: 700;
+  color: var(--text); margin-bottom: 16px;
+}
+.form-row { display: flex; gap: 14px; }
+.form-row label { flex: 1; }
+#contact-form input,
+#contact-form textarea {
+  display: block; width: 100%; margin-top: 8px;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 11px; padding: 12px 14px;
+  color: var(--text); font-size: 15px; font-family: inherit; font-weight: 400;
+}
+#contact-form input::placeholder,
+#contact-form textarea::placeholder { color: var(--dim); }
+#contact-form input:focus,
+#contact-form textarea:focus { outline: none; border-color: var(--gold); }
+#contact-form textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+.form-submit {
+  width: 100%; margin-top: 8px;
+  background: var(--gold); color: #0a0b0d;
+  font-weight: 800; font-size: 16px; border: none;
+  border-radius: 999px; padding: 14px; cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+.form-submit:hover { opacity: 0.9; }
+.form-submit:disabled { opacity: 0.6; cursor: default; }
+.form-status { margin: 12px 0 0; font-size: 14px; min-height: 18px; text-align: center; }
+.form-status.ok { color: var(--green); }
+.form-status.err { color: #ef5858; }
+@media (max-width: 480px) {
+  .form-row { display: block; }
+  .modal-card { padding: 30px 22px 24px; }
+}
+
 /* worked example */
 .example {
   margin-top: 26px;

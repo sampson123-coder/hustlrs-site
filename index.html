@@ -20,7 +20,7 @@
   <link rel="icon" href="/favicon.ico?v=4" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png?v=2">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="style.css?v=40">
+  <link rel="stylesheet" href="style.css?v=41">
 </head>
 <body>
   <div class="page">
@@ -31,7 +31,7 @@
           <a href="#top">Home</a>
           <a href="#modes">How to Play</a>
           <a href="#faq">FAQs</a>
-          <a class="nav-contact" href="mailto:hustlrsapp@gmail.com?subject=Hustlrs%20beta">Contact Us</a>
+          <a class="nav-contact" href="mailto:hustlrsapp@gmail.com?subject=Hustlrs%20beta" data-contact>Contact Us</a>
         </nav>
       </div>
     </header>
@@ -41,7 +41,7 @@
         <div class="hero-copy">
           <h1>Your goals.<br><span class="gold">Real money on the line.</span></h1>
           <p>Deposit real money on hitting your goals. Compete with your mates for the pot or go solo and check in by location. Hit your targets and keep your cash, fall short and you forfeit it.</p>
-          <a class="btn" href="mailto:hustlrsapp@gmail.com?subject=Hustlrs%20beta">Get early access</a>
+          <a class="btn" href="mailto:hustlrsapp@gmail.com?subject=Hustlrs%20beta" data-contact>Get early access</a>
         </div>
         <div class="hero-phones">
           <div class="phone"><img src="img/app-home.png?v=2" alt="The Hustlrs home screen with friends and solo hustles"></div>
@@ -120,9 +120,38 @@
     <footer>
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
-      <a href="mailto:hustlrsapp@gmail.com">Contact</a>
+      <a href="mailto:hustlrsapp@gmail.com" data-contact>Contact</a>
       <p class="small">&copy; 2026 Hustlrs &middot; 18+ &middot; UK</p>
     </footer>
+  </div>
+
+  <div class="modal" id="contact-modal">
+    <div class="modal-card">
+      <button type="button" class="modal-close" id="contact-close" aria-label="Close">&times;</button>
+      <h3>Get in touch</h3>
+      <p class="modal-sub">Drop your details and we'll get back to you within a day.</p>
+      <form id="contact-form">
+        <input type="hidden" name="_subject" value="New Hustlrs enquiry">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <div class="form-row">
+          <label>Name
+            <input type="text" name="name" placeholder="Your name" required>
+          </label>
+          <label>Email
+            <input type="email" name="email" placeholder="your@email.com" required>
+          </label>
+        </div>
+        <label>Subject
+          <input type="text" name="subject" placeholder="What's this about?">
+        </label>
+        <label>Message
+          <textarea name="message" rows="5" placeholder="Tell us more..." required></textarea>
+        </label>
+        <button type="submit" class="form-submit" id="contact-submit">Send message</button>
+        <p class="form-status" id="form-status"></p>
+      </form>
+    </div>
   </div>
 
   <div class="lightbox" id="lightbox">
@@ -171,6 +200,44 @@
             el.scrollIntoView({ behavior: 'smooth' });
           }
         });
+      });
+
+      // Contact form modal
+      var modal = document.getElementById('contact-modal');
+      var form = document.getElementById('contact-form');
+      var statusEl = document.getElementById('form-status');
+      var submitBtn = document.getElementById('contact-submit');
+      function openModal(e) { if (e) e.preventDefault(); modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+      function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+      document.querySelectorAll('[data-contact]').forEach(function (b) {
+        b.addEventListener('click', openModal);
+      });
+      document.getElementById('contact-close').addEventListener('click', closeModal);
+      modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        statusEl.className = 'form-status';
+        statusEl.textContent = 'Sending...';
+        fetch('https://formsubmit.co/ajax/hustlrsapp@gmail.com', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        }).then(function (r) { return r.json(); })
+          .then(function () {
+            form.reset();
+            statusEl.className = 'form-status ok';
+            statusEl.textContent = "Thanks! We'll be in touch soon.";
+          })
+          .catch(function () {
+            statusEl.className = 'form-status err';
+            statusEl.textContent = 'Something went wrong. Please email hustlrsapp@gmail.com directly.';
+          })
+          .finally(function () { submitBtn.disabled = false; });
       });
     })();
   </script>
