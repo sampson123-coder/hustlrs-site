@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join a hustle | Hustlrs</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.ico?v=4" sizes="any">
+  <style>
+    :root{
+      --bg:#0a0b0d; --surface:#131418; --border:#20222a;
+      --text:#f4f5f7; --muted:#8b9098; --dim:#5d626b;
+      --gold:#eeab21; --green:#3abc70;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%}
+    body{
+      background:var(--bg); color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      display:flex; align-items:center; justify-content:center;
+      padding:24px; -webkit-font-smoothing:antialiased;
+    }
+    .card{
+      width:100%; max-width:420px; background:var(--surface);
+      border:1px solid var(--border); border-radius:20px;
+      padding:32px 24px; text-align:center;
+    }
+    .wordmark{
+      font-size:20px; font-weight:800; letter-spacing:-0.6px;
+      color:var(--text); text-decoration:none; display:inline-block; margin-bottom:24px;
+    }
+    h1{font-size:24px; font-weight:800; letter-spacing:-0.4px; margin:0 0 8px}
+    p{font-size:15px; color:var(--muted); line-height:1.5; margin:0 0 24px}
+    .pin-label{font-size:11px; font-weight:700; letter-spacing:1.5px; color:var(--dim); margin-bottom:6px}
+    .pin{
+      font-size:40px; font-weight:800; letter-spacing:10px;
+      font-variant-numeric:tabular-nums; margin-bottom:4px;
+    }
+    .btn{
+      display:block; width:100%; padding:15px; border-radius:14px;
+      font-size:17px; font-weight:800; text-decoration:none; border:none; cursor:pointer;
+      margin-top:12px;
+    }
+    .btn-primary{background:var(--green); color:#06210f}
+    .btn-ghost{background:transparent; color:var(--text); border:1px solid var(--border)}
+    .copied{color:var(--green); font-size:13px; font-weight:600; height:16px; margin-top:10px}
+    .foot{font-size:13px; color:var(--dim); margin-top:20px}
+    .foot a{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="card" id="card"></div>
+
+  <script>
+    (function () {
+      // Pull the 6-char PIN out of /join/<PIN> (the universal-link style path).
+      var parts = location.pathname.split('/').filter(Boolean);
+      var pin = null;
+      if (parts[0] === 'join' && parts[1]) {
+        pin = parts[1].replace(/[^0-9A-Za-z]/g, '').slice(0, 6);
+      }
+      // Also accept /join/?pin=123456 just in case.
+      if (!pin) {
+        var q = new URLSearchParams(location.search).get('pin');
+        if (q) pin = q.replace(/[^0-9A-Za-z]/g, '').slice(0, 6);
+      }
+
+      var card = document.getElementById('card');
+
+      if (!pin) {
+        card.innerHTML =
+          '<a class="wordmark" href="/">Hustlrs</a>' +
+          '<h1>Page not found</h1>' +
+          '<p>That link doesn\'t lead anywhere. Head back to the homepage.</p>' +
+          '<a class="btn btn-primary" href="/">Go to Hustlrs</a>';
+        return;
+      }
+
+      var appLink = 'hustlrs://join/' + pin;
+      card.innerHTML =
+        '<a class="wordmark" href="/">Hustlrs</a>' +
+        '<h1>You\'re invited to a hustle</h1>' +
+        '<p>Open Hustlrs to join. Don\'t have it yet? Enter this PIN in the app.</p>' +
+        '<div class="pin-label">PIN</div>' +
+        '<div class="pin">' + pin + '</div>' +
+        '<a class="btn btn-primary" id="open" href="' + appLink + '">Open in Hustlrs</a>' +
+        '<button class="btn btn-ghost" id="copy">Copy PIN</button>' +
+        '<div class="copied" id="copied"></div>' +
+        '<div class="foot">By joining you agree to the ' +
+        '<a href="/terms.html">Terms</a> and <a href="/privacy.html">Privacy Policy</a>.</div>';
+
+      // Best-effort: try to bounce straight into the app if it's installed.
+      // Does nothing visible if it isn't (the page just stays put).
+      setTimeout(function () { window.location.href = appLink; }, 400);
+
+      document.getElementById('copy').addEventListener('click', function () {
+        navigator.clipboard && navigator.clipboard.writeText(pin);
+        document.getElementById('copied').textContent = 'Copied';
+      });
+    })();
+  </script>
+</body>
+</html>
