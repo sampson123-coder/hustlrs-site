@@ -316,6 +316,24 @@ tr:last-child td { border-bottom: none; }
   th, td { padding: 10px 4px; }
 }
 
+/* proportional "do 75%, keep 75%" bars */
+.proof-rows { display: grid; gap: 14px; }
+.proof-row { display: grid; grid-template-columns: 74px 1fr 112px; align-items: center; gap: 14px; }
+.proof-label { font-size: 14px; font-weight: 800; color: var(--text); }
+.proof-bar {
+  position: relative; height: 14px; border-radius: 8px;
+  background: #0b0c0f; border: 1px solid var(--border); overflow: hidden;
+}
+.proof-fill {
+  position: absolute; inset: 0 auto 0 0; height: 100%;
+  background: var(--gold); border-radius: 8px;
+}
+.proof-back { font-size: 14px; font-weight: 800; color: var(--gold); text-align: right; white-space: nowrap; }
+@media (max-width: 560px) {
+  .proof-row { grid-template-columns: 58px 1fr 96px; gap: 10px; }
+  .proof-label, .proof-back { font-size: 13px; }
+}
+
 /* faq */
 .faq { margin-top: 24px; display: grid; gap: 8px; }
 .faq details {
