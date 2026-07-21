@@ -113,12 +113,15 @@ header {
   .hero-phones .phone img { border-radius: 49px; }
 }
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
   background: var(--text); color: #0a0b0d;
   font-weight: 800; font-size: 16px; text-decoration: none;
   padding: 15px 30px; border-radius: 999px;
 }
 .btn:hover { opacity: 0.9; }
+.btn-apple { flex: 0 0 auto; position: relative; top: -1px; }
 
 .hero-phones {
   display: flex; gap: 14px; justify-content: center; align-items: flex-start;
