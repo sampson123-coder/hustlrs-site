@@ -375,3 +375,51 @@ footer {
 footer a { color: var(--muted); text-decoration: none; margin: 0 10px; }
 footer a:hover { color: var(--text); }
 footer .small { margin-top: 12px; }
+
+/* "coming soon" store badge: same pill as .btn, but not a link */
+.btn-soon { cursor: default; user-select: none; }
+.btn-soon:hover { opacity: 1; }
+.hero .hero-meta { font-size: 13px; color: var(--dim); margin: 14px auto 0; }
+@media (min-width: 920px) { .hero .hero-meta { font-size: 13px; margin: 14px 0 0; } }
+.hero-phones .phone img { aspect-ratio: 1206 / 2622; height: auto; background: var(--surface); }
+.mode-shot img { aspect-ratio: 1206 / 2622; height: auto; background: var(--surface); }
+
+/* forfeit chips */
+.forfeits {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px;
+}
+.forfeits li {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 999px; padding: 10px 18px;
+  font-size: 15px; font-weight: 700;
+}
+
+/* weekly badges */
+.badges { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.badges li {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px; border: 1px solid currentColor;
+}
+.b-bronze { color: #c98a55; }
+.b-silver { color: #c3c8d0; }
+.b-gold { color: var(--gold); }
+.b-diamond { color: #6fd3f2; }
+.b-hustlr { color: #0a0b0d; background: var(--gold); border-color: var(--gold) !important; }
+
+/* why steps stats */
+.stats { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 26px; }
+@media (min-width: 600px) { .stats { grid-template-columns: repeat(3, 1fr); } }
+.stat {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 18px; padding: 20px;
+}
+.stat-num {
+  display: block; font-size: 32px; font-weight: 900; letter-spacing: -1px;
+  color: var(--gold); margin-bottom: 6px;
+}
+.stat p { font-size: 14px; color: var(--muted); }
+.lead sup a, .stat sup a { color: var(--gold); text-decoration: none; font-size: 11px; margin-left: 1px; }
+.sources {
+  margin-top: 18px; padding-left: 18px;
+  font-size: 12px; color: var(--dim); display: grid; gap: 4px;
+}

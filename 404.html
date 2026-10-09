@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Join a hustle | Hustlrs</title>
+  <title>Hustlrs</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="/favicon.ico?v=4" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png?v=2">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?v=2">
   <style>
     :root{
       --bg:#0a0b0d; --surface:#131418; --border:#20222a;
@@ -13,90 +15,108 @@
       --gold:#eeab21; --green:#3abc70;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;height:100%}
+    html,body{margin:0;min-height:100%}
     body{
       background:var(--bg); color:var(--text);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-      display:flex; align-items:center; justify-content:center;
-      padding:24px; -webkit-font-smoothing:antialiased;
+      min-height:100vh; display:flex; align-items:center; justify-content:center;
+      padding:24px 16px; -webkit-font-smoothing:antialiased;
     }
     .card{
       width:100%; max-width:420px; background:var(--surface);
       border:1px solid var(--border); border-radius:20px;
-      padding:32px 24px; text-align:center;
+      padding:34px 24px 28px; text-align:center;
     }
     .wordmark{
-      font-size:20px; font-weight:800; letter-spacing:-0.6px;
-      color:var(--text); text-decoration:none; display:inline-block; margin-bottom:24px;
+      font-size:24px; font-weight:900; font-style:italic; letter-spacing:-0.6px;
+      color:var(--text); text-decoration:none; display:inline-block; margin-bottom:22px;
     }
-    h1{font-size:24px; font-weight:800; letter-spacing:-0.4px; margin:0 0 8px}
+    .kicker{
+      font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase;
+      color:var(--gold); margin:0 0 10px;
+    }
+    h1{font-size:26px; font-weight:900; letter-spacing:-0.6px; line-height:1.15; margin:0 0 10px}
     p{font-size:15px; color:var(--muted); line-height:1.5; margin:0 0 24px}
-    .pin-label{font-size:11px; font-weight:700; letter-spacing:1.5px; color:var(--dim); margin-bottom:6px}
-    .pin{
-      font-size:40px; font-weight:800; letter-spacing:10px;
-      font-variant-numeric:tabular-nums; margin-bottom:4px;
-    }
     .btn{
-      display:block; width:100%; padding:15px; border-radius:14px;
-      font-size:17px; font-weight:800; text-decoration:none; border:none; cursor:pointer;
-      margin-top:12px;
+      display:block; width:100%; padding:16px; border-radius:999px;
+      font-size:17px; font-weight:800; text-decoration:none; text-align:center;
+      background:var(--gold); color:#0a0b0d;
     }
-    .btn-primary{background:var(--green); color:#06210f}
-    .btn-ghost{background:transparent; color:var(--text); border:1px solid var(--border)}
-    .copied{color:var(--green); font-size:13px; font-weight:600; height:16px; margin-top:10px}
-    .foot{font-size:13px; color:var(--dim); margin-top:20px}
+    .btn:hover{opacity:0.9}
+    .soon{font-size:14px; color:var(--muted); margin:20px 0 0}
+    .soon b{color:var(--text)}
+    .foot{font-size:13px; color:var(--dim); margin:22px 0 0}
     .foot a{color:var(--muted)}
   </style>
 </head>
 <body>
-  <div class="card" id="card"></div>
+  <main class="card" id="card">
+    <a class="wordmark" href="/">Hustlrs</a>
+    <h1>Page not found</h1>
+    <p>That link doesn't lead anywhere. Head back to the homepage.</p>
+    <a class="btn" href="/">Go to Hustlrs</a>
+  </main>
 
   <script>
     (function () {
-      // Pull the 6-char PIN out of /join/<PIN> (the universal-link style path).
-      var parts = location.pathname.split('/').filter(Boolean);
-      var pin = null;
-      if (parts[0] === 'join' && parts[1]) {
-        pin = parts[1].replace(/[^0-9A-Za-z]/g, '').slice(0, 6);
+      // Invite links: /f/<token> (friend) and /h/<pin>/<token> (hustle).
+      // Only strictly validated values are ever used to build the app URL,
+      // and nothing from the path is written into the page.
+      var path = location.pathname;
+      var friend = /^\/f\/([A-Za-z0-9]{6,40})\/?$/.exec(path);
+      var hustle = /^\/h\/([0-9]{4,8})\/([A-Za-z0-9]{6,40})\/?$/.exec(path);
+
+      var appLink, kicker, title, body;
+      if (friend) {
+        appLink = 'hustlrs://friend/' + friend[1];
+        kicker = 'Friend invite';
+        title = "You've been invited to Hustlrs";
+        body = 'Weekly step challenges with your mates. Open the app to accept.';
+      } else if (hustle) {
+        appLink = 'hustlrs://hustle/' + hustle[1] + '/' + hustle[2];
+        kicker = 'Challenge';
+        title = "You've been challenged on Hustlrs";
+        body = 'Most steps by Sunday wins. The loser pays the forfeit. Open the app to accept.';
+      } else {
+        return; // normal 404, already rendered above
       }
-      // Also accept /join/?pin=123456 just in case.
-      if (!pin) {
-        var q = new URLSearchParams(location.search).get('pin');
-        if (q) pin = q.replace(/[^0-9A-Za-z]/g, '').slice(0, 6);
+
+      document.title = title;
+
+      function el(tag, cls, text) {
+        var n = document.createElement(tag);
+        if (cls) n.className = cls;
+        if (text) n.textContent = text;
+        return n;
       }
 
       var card = document.getElementById('card');
+      while (card.firstChild) card.removeChild(card.firstChild);
 
-      if (!pin) {
-        card.innerHTML =
-          '<a class="wordmark" href="/">Hustlrs</a>' +
-          '<h1>Page not found</h1>' +
-          '<p>That link doesn\'t lead anywhere. Head back to the homepage.</p>' +
-          '<a class="btn btn-primary" href="/">Go to Hustlrs</a>';
-        return;
-      }
+      var mark = el('a', 'wordmark', 'Hustlrs');
+      mark.href = '/';
+      card.appendChild(mark);
+      card.appendChild(el('p', 'kicker', kicker));
+      card.appendChild(el('h1', null, title));
+      card.appendChild(el('p', null, body));
 
-      var appLink = 'hustlrs://join/' + pin;
-      card.innerHTML =
-        '<a class="wordmark" href="/">Hustlrs</a>' +
-        '<h1>You\'re invited to a hustle</h1>' +
-        '<p>Open Hustlrs to join. Don\'t have it yet? Enter this PIN in the app.</p>' +
-        '<div class="pin-label">PIN</div>' +
-        '<div class="pin">' + pin + '</div>' +
-        '<a class="btn btn-primary" id="open" href="' + appLink + '">Open in Hustlrs</a>' +
-        '<button class="btn btn-ghost" id="copy">Copy PIN</button>' +
-        '<div class="copied" id="copied"></div>' +
-        '<div class="foot">By joining you agree to the ' +
-        '<a href="/terms.html">Terms</a> and <a href="/privacy.html">Privacy Policy</a>.</div>';
+      var open = el('a', 'btn', 'Open in Hustlrs');
+      open.href = appLink;
+      card.appendChild(open);
 
-      // Best-effort: try to bounce straight into the app if it's installed.
-      // Does nothing visible if it isn't (the page just stays put).
-      setTimeout(function () { window.location.href = appLink; }, 400);
+      var soon = el('p', 'soon', "Don't have the app yet? ");
+      soon.appendChild(el('b', null, 'Coming soon to the App Store.'));
+      card.appendChild(soon);
 
-      document.getElementById('copy').addEventListener('click', function () {
-        navigator.clipboard && navigator.clipboard.writeText(pin);
-        document.getElementById('copied').textContent = 'Copied';
-      });
+      var foot = el('p', 'foot');
+      var terms = el('a', null, 'Terms');
+      terms.href = '/terms.html';
+      var privacy = el('a', null, 'Privacy');
+      privacy.href = '/privacy.html';
+      foot.appendChild(terms);
+      foot.appendChild(document.createTextNode(' · '));
+      foot.appendChild(privacy);
+      card.appendChild(foot);
     })();
   </script>
 </body>
