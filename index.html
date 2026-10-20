@@ -20,7 +20,7 @@
   <link rel="icon" href="/favicon.ico?v=4" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png?v=2">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="style.css?v=50">
+  <link rel="stylesheet" href="style.css?v=51">
 </head>
 <body class="home">
   <header class="site-nav">
@@ -28,7 +28,7 @@
       <a class="wordmark" href="/">Hustlrs</a>
       <nav class="nav-links" aria-label="Main">
         <a href="#how">How it works</a>
-        <a href="#record">The record</a>
+        <a href="#forfeits">Forfeits</a>
         <a href="#pro">Free vs Pro</a>
         <a href="#faq">FAQ</a>
         <a class="nav-contact" href="mailto:hustlrsapp@gmail.com?subject=Hustlrs" data-contact>Contact</a>
@@ -66,72 +66,58 @@
     <section class="block" id="how">
       <div class="block-head reveal">
         <p class="eyebrow">How it works</p>
-        <h2>Pick a mate.<br>Set a target. Walk.</h2>
+        <h2>Pick a mate.<br>Set a forfeit. Walk.</h2>
       </div>
       <ol class="how reveal">
         <li>
           <span class="how-n">1</span>
           <h3>Challenge a friend</h3>
-          <p>Pick a mate, a weekly target like 70,000 steps, and a forfeit.</p>
+          <p>Pick a mate and a forfeit.</p>
         </li>
         <li>
           <span class="how-n">2</span>
           <h3>Walk all week</h3>
-          <p>Your iPhone or Apple Watch counts every step. Nothing to log.</p>
+          <p>Your iPhone counts every step.</p>
         </li>
         <li>
           <span class="how-n">3</span>
-          <h3>Loser does the forfeit</h3>
-          <p>Most steps by Sunday wins. The loser proves it with a photo.</p>
+          <h3>Most steps wins</h3>
+          <p>The loser does the forfeit.</p>
         </li>
       </ol>
     </section>
 
-    <!-- Feature: the forfeit -->
+    <!-- The forfeit + the record -->
     <section class="feature reveal" id="forfeits">
       <div class="feature-copy">
         <p class="eyebrow">The forfeit</p>
-        <h2>Something worth<br>walking for.</h2>
-        <p class="feature-text">No money in the app.<br>Just bragging rights and a forfeit your mate won't forget.</p>
+        <h2>Everyone sees<br>who did it.</h2>
+        <p class="feature-text">Bragging rights and a forfeit your mate won't forget.</p>
         <ul class="chips">
           <li>Buys Nando's</li>
           <li>Buys the matchas</li>
-          <li>Pays for the cinema</li>
           <li>Wears their football shirt</li>
           <li>Posts their worst selfie</li>
         </ul>
-        <p class="feature-note">Both hit the target? It's a draw. Nobody owes.</p>
-      </div>
-      <div class="feature-shot">
-        <div class="shot"><img src="img/shot-days.png?v=1" alt="A Hustle between you and a friend, with the winner of each day lit up in gold" width="1206" height="2622" loading="lazy"></div>
-      </div>
-    </section>
-
-    <!-- Feature: the record -->
-    <section class="feature feature-flip reveal" id="record">
-      <div class="feature-copy">
-        <p class="eyebrow">The record</p>
-        <h2>Everyone sees<br>who owes who.</h2>
-        <p class="feature-text">Lots of apps count your steps. Hustlrs keeps score.</p>
         <ul class="ticks">
-          <li>Wins, draws and losses on every profile</li>
-          <li>&#9203; means they still owe the forfeit</li>
-          <li>&#128247; means they did it, with the photo to prove it</li>
-          <li>A winner every single day, lit up in gold</li>
+          <li>The loser proves it with a photo</li>
+          <li>&#9203; still owes it. &#128247; did it.</li>
+          <li>Your record on every profile</li>
         </ul>
       </div>
-      <div class="feature-shot">
-        <div class="shot"><img src="img/shot-record.png?v=1" alt="A friend's profile: their win, draw and loss record and every Hustle, with forfeits done and still owed" width="1206" height="2622" loading="lazy"></div>
+      <div class="feature-shot feature-shots">
+        <div class="shot"><img src="img/shot-days.png?v=1" alt="A Hustle between you and a friend, with the winner of each day lit up in gold" width="1206" height="2622" loading="lazy"></div>
+        <div class="shot"><img src="img/shot-record.png?v=1" alt="A friend's profile with their record and every Hustle, with forfeits done and still owed" width="1206" height="2622" loading="lazy"></div>
       </div>
     </section>
 
-    <!-- Feature: your mates -->
-    <section class="feature reveal" id="friends">
+    <!-- Your mates + just you -->
+    <section class="feature feature-flip reveal" id="friends">
       <div class="feature-copy">
-        <p class="eyebrow">You and your mates</p>
+        <p class="eyebrow">Every day</p>
         <h2>See who's<br>really moving.</h2>
-        <p class="feature-text">You and your friends, ranked on steps.<br>Today, yesterday, this week or this month.</p>
-        <p class="feature-text">Every Monday you get a rank from last week's average day.</p>
+        <p class="feature-text">Your mates, ranked today, yesterday, this week or this month.</p>
+        <p class="feature-text">A new rank every Monday. A &#128293; streak and a weekly challenge just for you.</p>
         <ul class="badges" aria-label="Ranks">
           <li class="b-bronze">Bronze</li>
           <li class="b-silver">Silver</li>
@@ -140,20 +126,8 @@
           <li class="b-hustlr">Hustlr</li>
         </ul>
       </div>
-      <div class="feature-shot">
+      <div class="feature-shot feature-shots">
         <div class="shot"><img src="img/shot-friends.png" alt="The Friends tab ranking you and your friends on steps" width="1206" height="2622" loading="lazy"></div>
-      </div>
-    </section>
-
-    <!-- Feature: just you -->
-    <section class="feature feature-flip reveal" id="you">
-      <div class="feature-copy">
-        <p class="eyebrow">Just you</p>
-        <h2>Beat yourself too.</h2>
-        <p class="feature-text">Hit your daily goal to keep your &#128293; streak going.</p>
-        <p class="feature-text">One weekly challenge, sized from your usual week.<br>Finish it and a missed day won't break your streak.</p>
-      </div>
-      <div class="feature-shot">
         <div class="shot"><img src="img/shot-challenges.png?v=1" alt="Your weekly challenge, sized to your own step history" width="1206" height="2622" loading="lazy"></div>
       </div>
     </section>
@@ -162,7 +136,7 @@
     <section class="block" id="pro">
       <div class="block-head reveal">
         <p class="eyebrow">Free vs Pro</p>
-        <h2>Free to play.<br><span class="gold">Pro when the whole group's in.</span></h2>
+        <h2>Free to play.<br><span class="gold">Pro for the whole group.</span></h2>
         <p class="block-sub">Pro never gives anyone an edge in a Hustle.</p>
       </div>
       <div class="compare reveal">
@@ -244,62 +218,29 @@
           </tbody>
         </table>
       </div>
-      <p class="price reveal">Hustlrs Pro is &pound;2.99 a month or &pound;19.99 a year.<br>Cancel any time in your App Store settings.</p>
-    </section>
-
-    <!-- Why steps -->
-    <section class="block" id="why">
-      <div class="block-head reveal">
-        <p class="eyebrow">Why steps</p>
-        <h2>The simplest habit<br>that works.</h2>
-      </div>
-      <div class="stats reveal">
-        <div class="stat">
-          <span class="stat-num">~50%</span>
-          <p>lower risk of early death at 8,000 steps a day vs 4,000.<sup><a href="#src-1">1</a></sup></p>
-        </div>
-        <div class="stat">
-          <span class="stat-num">25%</span>
-          <p>lower risk of depression from about 30 minutes of walking a day.<sup><a href="#src-2">2</a></sup></p>
-        </div>
-        <div class="stat">
-          <span class="stat-num">~5,000</span>
-          <p>steps a day is the average. Plenty of room to beat your mates.<sup><a href="#src-3">3</a></sup></p>
-        </div>
-      </div>
-      <ol class="sources">
-        <li id="src-1">Saint-Maurice et al. Association of Daily Step Count and Step Intensity With Mortality Among US Adults. <i>JAMA</i>, 2020.</li>
-        <li id="src-2">Pearce et al. Association Between Physical Activity and Risk of Depression. <i>JAMA Psychiatry</i>, 2022.</li>
-        <li id="src-3">Althoff et al. Large-scale physical activity data reveal worldwide activity inequality. <i>Nature</i>, 2017.</li>
-      </ol>
     </section>
 
     <!-- FAQ -->
     <section class="block" id="faq">
       <div class="block-head reveal">
-        <p class="eyebrow">The honest FAQ</p>
-        <h2>Questions you're thinking.</h2>
+        <h2>Questions.</h2>
       </div>
       <div class="faq reveal">
         <details>
           <summary>Is it free?</summary>
-          <p>Yes. Hustlrs is free on iPhone, and no money changes hands in the app. The forfeit is between you and your mate. Pro is optional.</p>
+          <p>Yes. Hustlrs is free on iPhone. Pro is optional.</p>
         </details>
         <details>
           <summary>How are my steps counted?</summary>
-          <p>Your iPhone or Apple Watch counts them through Apple Health. Hustlrs only reads your steps. It never writes to Apple Health.</p>
-        </details>
-        <details>
-          <summary>What if we both hit the target?</summary>
-          <p>Then it's a draw and nobody owes anything. If either of you misses, most steps wins.</p>
+          <p>Your iPhone or Apple Watch, through Apple Health. Nothing to log.</p>
         </details>
         <details>
           <summary>How do I know they did the forfeit?</summary>
-          <p>The loser proves it with a photo taken in the app. No digging up an old picture.</p>
+          <p>The loser proves it with a photo taken in the app.</p>
         </details>
         <details>
           <summary>Do my mates need Pro?</summary>
-          <p>Never. Your mates join any Hustle free, even a Pro group of 10.</p>
+          <p>Never. Your mates always join free.</p>
         </details>
       </div>
     </section>
