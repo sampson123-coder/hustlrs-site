@@ -214,6 +214,7 @@ h2 {
 .tag-green { background: var(--green); }
 .mode h3 { font-size: 19px; font-weight: 800; letter-spacing: -0.3px; margin-bottom: 8px; }
 .mode p { font-size: 14.5px; color: var(--muted); line-height: 1.55; }
+.mode p + p { margin-top: 8px; }
 
 /* click-to-enlarge lightbox for the mode-card phones */
 .lightbox {
