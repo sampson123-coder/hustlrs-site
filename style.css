@@ -236,7 +236,7 @@ main > section { padding: 0 24px; }
 }
 
 .badges { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 24px; }
-.badges li {
+.badges li, .rank {
   font-size: 11px; font-weight: 800; letter-spacing: 0.8px; text-transform: uppercase;
   padding: 5px 11px; border-radius: 999px; border: 1px solid currentColor;
 }
@@ -245,6 +245,20 @@ main > section { padding: 0 24px; }
 .b-gold { color: var(--gold); }
 .b-diamond { color: #6fd3f2; }
 .b-hustlr { color: #08090b; background: var(--gold); border-color: var(--gold) !important; }
+
+.ranks { list-style: none; margin-top: 24px; max-width: 420px; }
+.ranks li {
+  display: grid; grid-template-columns: 96px 80px 1fr; align-items: center; gap: 10px;
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+}
+.ranks li:last-child { border-bottom: 0; }
+.rank { justify-self: start; }
+.rank-steps { white-space: nowrap; font-weight: 800; font-size: 15px; color: var(--text); font-variant-numeric: tabular-nums; }
+.rank-what { font-size: 13px; color: var(--muted); }
+.ranks-note { font-size: 13px; color: var(--dim); margin-top: 10px; }
+@media (max-width: 480px) {
+  .ranks li { grid-template-columns: 88px 84px 1fr; gap: 8px; }
+}
 
 /* ---------- Free vs Pro ---------- */
 .compare {
