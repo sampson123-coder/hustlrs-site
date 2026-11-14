@@ -20,7 +20,7 @@
   <link rel="icon" href="/favicon.ico?v=4" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png?v=2">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="style.css?v=51">
+  <link rel="stylesheet" href="style.css?v=52">
 </head>
 <body class="home">
   <header class="site-nav">
@@ -43,10 +43,15 @@
       <h1>Step battles<br><span class="gold">with consequences.</span></h1>
       <p class="hero-sub">A week of steps with your mates.<br>The loser does the forfeit.</p>
       <div class="hero-cta">
-        <span class="btn btn-soon" role="text" aria-label="Coming soon to the App Store">
-          <svg class="btn-apple" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-          <span>Coming soon to the App Store</span>
-        </span>
+        <form class="waitlist" data-wl novalidate>
+          <label class="sr-only" for="wl-email-1">Email address</label>
+          <div class="wl-row">
+            <input id="wl-email-1" type="email" name="email" placeholder="Your email" autocomplete="email" inputmode="email" required>
+            <button class="btn" type="submit">Join the waitlist</button>
+          </div>
+          <input class="wl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="wl-note" aria-live="polite">Coming soon to the App Store. We email you once, on launch day.</p>
+        </form>
       </div>
       <p class="hero-meta">Free &middot; iPhone &middot; Works with Apple Watch</p>
 
@@ -248,10 +253,15 @@
     <!-- Closing CTA -->
     <section class="closer reveal">
       <h2>Your mates are<br><span class="gold">already walking.</span></h2>
-      <span class="btn btn-soon" role="text" aria-label="Coming soon to the App Store">
-        <svg class="btn-apple" viewBox="0 0 384 512" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-        <span>Coming soon to the App Store</span>
-      </span>
+      <form class="waitlist" data-wl novalidate>
+          <label class="sr-only" for="wl-email-2">Email address</label>
+          <div class="wl-row">
+            <input id="wl-email-2" type="email" name="email" placeholder="Your email" autocomplete="email" inputmode="email" required>
+            <button class="btn" type="submit">Join the waitlist</button>
+          </div>
+          <input class="wl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="wl-note" aria-live="polite">Coming soon to the App Store. We email you once, on launch day.</p>
+        </form>
     </section>
   </main>
 
@@ -396,6 +406,41 @@
             statusEl.textContent = 'Something went wrong. Please email hustlrsapp@gmail.com directly.';
           })
           .finally(function () { submitBtn.disabled = false; });
+      });
+    })();
+  </script>
+  <script>
+    // Waiting list: adds the email through join_waitlist() only. The table is private.
+    (function () {
+      var URL = 'https://bwtdpzrjaocutqxfbivf.supabase.co/rest/v1/rpc/join_waitlist';
+      var KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ3dGRwenJqYW9jdXRxeGZiaXZmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2NTIzMjIsImV4cCI6MjA5NTIyODMyMn0.pLYIoM4zOFwxbh0tueXaCQR_vhg6i3-3ZQQ9XzUxRoc';
+      var params = new URLSearchParams(location.search);
+      var source = (params.get('ref') || params.get('utm_source') || 'site').slice(0, 40);
+      document.querySelectorAll('form[data-wl]').forEach(function (f) {
+        var note = f.querySelector('.wl-note');
+        var btn = f.querySelector('button');
+        f.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (f.website.value) return;
+          var email = f.email.value.trim();
+          if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+            note.textContent = 'Please enter a valid email.'; note.className = 'wl-note wl-err'; return;
+          }
+          btn.disabled = true;
+          fetch(URL, {
+            method: 'POST',
+            headers: { 'apikey': KEY, 'Authorization': 'Bearer ' + KEY, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ p_email: email, p_source: source })
+          }).then(function (r) {
+            if (!r.ok) throw new Error(r.status);
+            f.querySelector('.wl-row').remove();
+            note.textContent = "You're on the list. We'll email you when Hustlrs is live.";
+            note.className = 'wl-note wl-ok';
+          }).catch(function () {
+            btn.disabled = false;
+            note.textContent = 'Something went wrong. Please try again.'; note.className = 'wl-note wl-err';
+          });
+        });
       });
     })();
   </script>
